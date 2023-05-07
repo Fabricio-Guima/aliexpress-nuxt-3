@@ -219,8 +219,9 @@ const pay = async () => {
     isProcessing.value = false;
   } else {
     await createOrder(result.paymentIntent.id);
-    userStore.cart = [];
     userStore.checkout = [];
+    userStore.cart = [];
+
     setTimeout(() => {
       return navigateTo("/success");
     }, 500);
